@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			margin: 0;
+			padding: 0;
+		}
+
+
+	h1 {
+		text-align: center;
+		margin-top: 50px;
+		margin-bottom: 30px;
+		color: #333;
+	}
+
+	form {
+		width: 50%;
+		margin: auto;
+		background-color: #fff;
+		padding: 20px;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0,0,0,0.1);
+	}
+
+	input[type="file"] {
+		display: block;
+		margin-bottom: 20px;
+	}
+
+	input[type="submit"] {
+		background-color: #4CAF50;
+		color: #fff;
+		padding: 10px 20px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+	}
+
+	input[type="submit"]:hover {
+		background-color: #3e8e41;
+	}
+
+	h2 {
+		margin-top: 30px;
+		color: #333;
+	}
+</style>
+
+<head>
+	<title>Invoice Extractor</title>
+</head>
+<body>
+	<h1>Upload Invoice</h1>
+	<form method="POST" enctype="multipart/form-data">
+		<input type="file" name="file"><br><br>
+		<input type="submit" value="Upload">
+	</form>
+	{% if filename %}
+		<h2>qty {{ filename }}</h2>
+	{% endif %}
+	{% if pp %}
+		<h2>Prices: {{ pp }}</h2>
+	{% endif %}
+	{% if des %}
+		<h2>description {{ des }}</h2>
+	{% endif %}
+
+	{% if totalprice2 %}
+		<h2>Total: {{ totalprice2 }}</h2>
+	{% endif %}
+
+    {% if inv %}
+		<h2>invoice number: {{ inv }}</h2>
+	{% endif %}
+    {% if dd %}
+		<h2>Date: {{ dd }}</h2>
+	{% endif %}
+    {% if deliveryno3 %}
+		<h2>Delivery No {{ deliveryno3 }}</h2>
+	{% endif %}
+    {% if currency %}
+		<h2>Currency: {{ currency }}</h2>
+	{% endif %}
+</body>
+</html>
